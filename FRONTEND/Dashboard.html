@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+}
+
+.navbar {
+  padding: 20px;
+  flex-basis: 10%;
+  background-color: #2b1043;
+ 
+  
+}
+
+.navbar ul {
+  list-style-type: none;
+  padding: 0;
+  color: white;
+}
+
+.navbar li {
+  padding: 10px;
+  color: white;
+}
+
+.navbar li a {
+  text-decoration: none;
+  color: white;
+}
+
+.navbar li:hover{
+  text-decoration: underline dotted;
+  
+}
+
+.course-container {
+  flex-basis: 75%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+.course-card {
+  width: 300px;
+  background-color: #2b1043;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  color: white;
+  border-left: 3.5px solid salmon
+}
+
+.course-card h3 {
+  margin: 0;
+  padding-bottom: 10px;
+}
+
+.course-card p {
+  margin: 0;
+}
+
+.course-card img {
+  width: 50px;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 768px) {
+
+  .navbar {
+  padding-left: 20px;
+  flex-basis: 10%;
+  background-color: #2b1043;
+  height: 200%;
+ 
+  
+}
+
+
+
+}
+
+  </style>
+</head>
+<body>
+  <div class="dashboard-container">
+    <div class="navbar">
+      <ul>
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="#">Courses</a></li>
+        <li><a href="#">Profile</a></li>
+        <li><a href="login.html">Sign Out</a></li>
+      </ul>
+    </div>
+    <div class="course-container">
+      <div class="course-card">
+      <img src="/images/proDesign.png" alt="Product Design" style="width: 60px">
+        <h3>Product Design</h3>
+        <p>Product design involves the process of creating and developing innovative and functional products. It combines elements of aesthetics, usability, and market research to design products that meet user needs and bring value to the market.</p>
+      </div>
+      <div class="course-card">
+        <img src="/images/webDev.png" alt="Web Development">
+        <h3>Web Development</h3>
+        <p>Web development is the process of creating websites and web applications. It involves designing, coding, and building interactive and functional websites using various technologies and programming languages.</p>
+      </div>
+      <div class="course-card">
+        <img src="/images/DigiMkt.png" alt="Digital Marketing">
+        <h3>Digital Marketing</h3>
+        <p>Digital marketing encompasses various online marketing strategies and tactics to promote products, services, or brands. It involves leveraging digital channels such as websites, search engines, social media, email, and online advertising to reach and engage with the target audience.</p>
+      </div>
+      <div class="course-card">
+        <img src="/images/DataAnalysis.png" alt="Data Analysis">
+        <h3>Data Analysis</h3>
+        <p>Data analysis involves examining, transforming, and interpreting data to extract insights and make informed decisions. It includes various techniques such as statistical analysis, data mining, and data visualization to uncover patterns, trends, and correlations that can drive business strategies and improvements.</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

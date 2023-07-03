@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Solkiona Technologies</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div class="banner">
+    <div class="navbar">
+      <img src="images/logo.png" alt=" logo">
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="dashboard.html">DASHBOARD</a></li>
+        <li><a href="login.html">SIGN-UP</a></li>
+        <li><a href="login.html">SIGN-OUT</a></li>
+      </ul>
+
+    </div>
+
+    <div class="content">
+
+      <h1>LEVEL UP YOUR TECH SKILLS NOW!</h1>
+      <p >Technology is the leading catalyst for innovation and advancement in today's world, 
+        transforming industries and shaping the future. From groundbreaking developments in artificial
+         intelligence to revolutionary strides in renewable energy, technology has become an indispensable 
+         force driving progress across all sectors.To stay ahead of the curve and unlock limitless opportunities, 
+         it is crucial to continuously enhance your technological skills and knowledge. 
+         <br>That is why you must not delay
+         to take a course with Solkiona Tech Hub</p>
+         <br> 
+         CLICK! SIGN-UP below to create an Account 
+
+         <div>
+          <br>
+          <button type="button" id="signupBtn"><span></span>SIGN-UP</button>
+          <button type="button" id="dashboardBtn"><span></span>DASHBOARD</button>
+    
+        </div>
+    </div>
+   
+
+   
+  </div>
+  <script >
+  signupBtn = document.getElementById('signupBtn');
+  signupBtn.onclick = function (){
+  window.location.href = "login.html";
+
+  dashboardBtn = document.getElementById('dashboardBtn');
+  dashboardBtn.onclick = function (){
+
+    window.location.href = "dashboard.html";
+
+  }
+}
+  </script>
+</body>
+</html>

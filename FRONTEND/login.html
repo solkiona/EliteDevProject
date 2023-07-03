@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="projectScripts.js"></script>
+    <script src="https://kit.fontawesome.com/475ea9865d.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container">
+   
+    <div class="form-box">
+        <img src="images/logo.png" alt="my_logo" />
+        <h1 id="title">Sign Up</h1>
+        <form id="loginForm">
+            <div class="input-group">
+                <div class="input-field" id="nameField">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" placeholder="Name" id="nameInput">
+                </div>
+            
+                <div class="input-group">
+                    <div class="input-field">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="email" placeholder="Email" id="emailInput" required>
+                    </div>
+
+                    <div class="input-group">
+                        <div class="input-field">
+                            <i class="fa-solid fa-lock"></i>
+                            <input type="password" placeholder="Password" 
+                            id="passwordInput" required>
+                        </div>
+
+
+
+
+
+                </div>
+            </div>
+            <p>Lost password <a href="#" > Click Here!</a></p>
+        </form>
+    </div>
+
+    <div class="btn-field">
+        <button type="button" id="signupBtn">Sign up</button>
+        <button type="submit" class="disable" id="signinBtn">Sign in</button>
+    </div>
+
+
+</div>
+<script>
+
+    
+
+    let signupBtn = document.getElementById("signupBtn");
+    let signinBtn = document.getElementById("signinBtn");
+    let nameField = document.getElementById("nameField");
+    let title = document.getElementById("title");
+
+    
+    
+    
+
+    let clickCount = 0;
+
+    let userData = JSON.parse(localStorage.getItem('userData')) || [];
+
+    signinBtn.onclick = function(){
+        nameField.style.maxHeight = "0";
+        title.innerHTML = "Sign In";
+        signupBtn.classList.add("disable");
+        signinBtn.classList.remove("disable");
+
+        clickCount++;
+
+        if(clickCount >=2){
+
+        const email = document.getElementById("emailInput").value;
+        const password = document.getElementById("passwordInput").value;
+        //alert(email + "your passowrd is : " + password);
+        if(email === '' || password === ''){
+            alert('email and password cannot be empty');
+            return;
+        }
+    //A SIMPLE PASSWORD HASHING ALGORITHM USING STRING MANIPULATION 
+  
+  function hashPassword(password) {
+  let hash = 0;
+
+  if (password.length === 0) {
+    return hash;
+  }
+
+  for (let i = 0; i < password.length; i++) {
+    const char = password.charCodeAt(i);
+    hash += char;
+  }
+
+  return ("**0x0x0x0" + "0x8+_%%$3++&&+.!!..,,,/**0x0x0x0"+ hash.toString() + "0x8+_%%$3++&&+.!!..,,,/**0x0x0x0" + "%%$3++&&+.!!..,,,/**0x0x0x0");
+}
+
+
+    const hashedPassword = hashPassword(password);
+    
+    const user = userData.find((user) => (user.email === email) && user.password === hashedPassword);
+    //  alert(user.password);
+    if (user) {
+      alert("Login successful!");
+      window.location.href = "dashboard.html";
+    } else {
+      alert("Invalid credentials. Please try again.");
+    }
+
+        }
+    
+    }
+
+    
+
+    signupBtn.onclick = function(){
+        clickCount = 0;
+
+        nameField.style.maxHeight = "60px";
+        title.innerHTML = "Sign Up";
+        signupBtn.classList.remove("disable");
+        signinBtn.classList.add("disable");
+
+  const name = document.getElementById('nameInput').value;
+  const email = document.getElementById("emailInput").value;
+  const password = document.getElementById("passwordInput").value;
+  event.preventDefault();
+
+//CLIENT SIDE EMAIL AND PASSWORD VALIDATION 
+
+if(name === ''){
+    alert('name cannot be empty');
+    return;
+}
+
+if( email === '' && password === ''){
+            alert('email and password cannot be empty');
+            return;
+        }
+
+  const emailValidator = new RegExp("^.+@.+\..+$");
+  const checkEmail = emailValidator.test(email);
+  if(!(checkEmail)){
+    alert('please enter a valid email address');
+    return;
+  }
+
+  const pswdValidator = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{6,}$/;
+  const checkPswd = pswdValidator.test(password);
+  if(!checkPswd){
+    alert('Password must not be less than 6 digits, must contain an Uppercase, Lowercase and a Number');
+    return;
+  }
+
+//A SIMPLE PASSWORD HASHING ALGORITHM USING STRING MANIPULATION 
+  
+function hashPassword(password) {
+  let hash = 0;
+
+  if (password.length === 0) {
+    return hash;
+  }
+
+  for (let i = 0; i < password.length; i++) {
+    const char = password.charCodeAt(i);
+    hash += char;
+  }
+
+  return ("**0x0x0x0" + "0x8+_%%$3++&&+.!!..,,,/**0x0x0x0"+ hash.toString() + "0x8+_%%$3++&&+.!!..,,,/**0x0x0x0" + "%%$3++&&+.!!..,,,/**0x0x0x0");
+}
+const hashedPassword = hashPassword(password);
+  
+  // CHECK IF USER ALREADY EXISTS
+  
+  const existingUser = userData.find((user) => user.email === email && user.password === hashedPassword);
+  
+  if (existingUser){
+  
+  alert('user already exists! Please Login ');
+  return;
+  }
+  
+  const newUser = {
+  
+  name: name,
+  email: email,
+  password: hashedPassword
+  
+  };
+
+  userData.push(newUser);
+
+  localStorage.setItem('userData', JSON.stringify(userData));
+
+  alert('Sign up Successful');
+  window.location.href = "dashboard.html"
+  
+    }
+</script>
+</body>
+</html>

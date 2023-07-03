@@ -1,0 +1,157 @@
+*{
+    margin: 0;
+    font-family:  Arial, sans-serif;
+
+}
+
+.navbar{
+    
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #f8f8f8;
+    position: relative;
+}
+
+.banner{
+    background: url(images/banner.jpg);
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+}
+
+.navbar img{
+
+    width: 100px;
+    padding: 10px;
+    margin-left: 20px;
+}
+.navbar ul{
+    margin: 20px;
+}
+.navbar ul li{
+    list-style: none;
+    display: inline-block;
+    justify-content: space-between;
+    font-size: 12px;
+    padding:4.5px;
+    position: relative;
+}
+
+.navbar ul li::after{
+    content: '';
+    height: 1.5px;
+    width: 0;
+    background: #fff;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    margin-left: 5px;
+    transition: 0.5s;
+}
+.navbar ul li:hover::after{
+    width: 85%;
+}
+.navbar ul li a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.content{
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: #fff;
+    
+}
+
+.content h1{
+
+    margin: 20px
+}
+.content p{
+
+    display: flex;
+    margin-left: 50px;
+    margin-right: 50px;
+    font-weight: 100;
+    line-height: 25px;
+    text-align: center;
+}
+
+button{
+    width: 200px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid white;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+span{
+    background: #fff;
+    height: 100%;
+    width: 0%;
+    border-radius: 25px;
+    position: absolute;
+    left: 0; 
+    bottom: 0;
+    z-index: -1;
+    transition: 0.5s;
+    
+}
+button:hover{
+    color: #320228;
+    border: none;
+}
+button:hover span{
+    
+    width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    
+
+    .content{
+        margin-top: 100px;
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+        text-align: center;
+        color: #fff;
+        
+    }
+
+    .navbar img{
+
+        width: 100px;
+        padding: 3px;
+        margin-left: 20px;
+    }
+
+    .navbar ul li{
+        list-style: none;
+        display: inline-block;
+        justify-content: space-between;
+        font-size: 12px;
+        padding:1px;
+        position: relative;
+    }
+    span{
+     display: hidden;
+
+        
+    }
+    
+}
