@@ -8,6 +8,13 @@
   font-family: Arial, sans-serif;
 }
 
+#dashboardContent{
+
+  display: none;
+  transition: opacity 0.5s ease-in-out;
+
+}
+
 .dashboard-container {
   display: flex;
   height: 100vh;
@@ -49,6 +56,7 @@
   justify-content: space-around;
   align-items: flex-start;
   padding: 20px;
+  opacity: 1;
 }
 
 .course-card {
@@ -93,40 +101,76 @@
 }
 
   </style>
+  
 </head>
-<body>
-  <div class="dashboard-container">
+<body >
+
+  <div class="dashboard-container" id="display">
     <div class="navbar">
       <ul>
         <li><a href="#">Dashboard</a></li>
-        <li><a href="#">Courses</a></li>
-        <li><a href="#">Profile</a></li>
-	<li><a href="index.html">Home</a></li>
-        <li><a href="login.html">Sign Out</a></li>
+        <li><a href="#" onclick="displayCourse()">Courses</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="login.html" onclick="logout()">Sign Out</a></li>
       </ul>
     </div>
-    <div class="course-container">
+    <div class="course-container" id="dashboardContent">
       <div class="course-card">
-      <img src="./images/proDesign.png" alt="Product Design" style="width: 60px">
+      <img src="/images/proDesign.png" alt="Product Design" style="width: 60px">
         <h3>Product Design</h3>
         <p>Product design involves the process of creating and developing innovative and functional products. It combines elements of aesthetics, usability, and market research to design products that meet user needs and bring value to the market.</p>
       </div>
       <div class="course-card">
-        <img src="./images/webDev.png" alt="Web Development">
+        <img src="/images/webDev.png" alt="Web Development">
         <h3>Web Development</h3>
         <p>Web development is the process of creating websites and web applications. It involves designing, coding, and building interactive and functional websites using various technologies and programming languages.</p>
       </div>
       <div class="course-card">
-        <img src="./images/DigiMkt.png" alt="Digital Marketing">
+        <img src="/images/DigiMkt.png" alt="Digital Marketing">
         <h3>Digital Marketing</h3>
         <p>Digital marketing encompasses various online marketing strategies and tactics to promote products, services, or brands. It involves leveraging digital channels such as websites, search engines, social media, email, and online advertising to reach and engage with the target audience.</p>
       </div>
       <div class="course-card">
-        <img src="./images/DataAnalysis.png" alt="Data Analysis">
+        <img src="/images/DataAnalysis.png" alt="Data Analysis">
         <h3>Data Analysis</h3>
         <p>Data analysis involves examining, transforming, and interpreting data to extract insights and make informed decisions. It includes various techniques such as statistical analysis, data mining, and data visualization to uncover patterns, trends, and correlations that can drive business strategies and improvements.</p>
       </div>
     </div>
   </div>
+
+  <script>
+
+    //THIS SCRIPT WILL ALLOW ANONYMOUS USERS FROM ACCESSING THE DASHBOARD
+    //IT CHECKS IF IT IS THE CURRENT USER THAT IS LOGGED IN BY SETTING LOGGEDIN VALUE TO TRUE OR FALSE UPON SIGN-IN AND SIGN-UP
+    window.addEventListener('load', function(){
+
+        if (localStorage.getItem('loggedin') === "false"){
+          
+          document.getElementById('display').style.display = "None";
+          alert('Please Signin to view Dashboard');
+          window.location.href = "login.html"
+          
+
+      } 
+
+    })
+
+
+    function displayCourse(){
+      document.getElementById("dashboardContent").style.display =  "flex";
+    }
+
+
+    function logout(){
+
+      
+      const loggedin = false;
+      localStorage.setItem('loggedin', 'false');
+      // alert(localStorage.getItem('loggedin'));
+      //loggedin = "false";
+    }
+
+  </script>
 </body>
 </html>
+
